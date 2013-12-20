@@ -61,10 +61,10 @@
   display: inline-block;
   display: block;
   position: relative;
-  height: 450px;
+  height: 380px;
   padding-bottom: 45px;
-  width: 930px;
-  margin: 10px auto;
+  width: 1080px;
+  margin: 0px auto;
 }
 #slideshow:before,
 #slideshow:after {
@@ -92,38 +92,68 @@
   list-style: none;
 }
 #slideshow ul li .caption {
-  padding: 0 200px 0 10px;
-  width: 720px;
-  background: url(../images/slideshow_violator.png) left top;
+  padding: 0;
+  width: 75%;
   display: block;
   height: 45px;
-  color: #fff;
-  position: absolute;
+  margin: -260px auto;
   z-index: 5000;
-  bottom: -35px;
-  font-size: 12px;
+  top:0px;
+  font-size: 4.0em;
+  line-height:1em;
+  font-weight:600;
+}
+#slideshow ul li a .caption.white {
+  color:#fff;
 }
 #slideshow ul li a {
+  color:inherit;
   display: block;
   height: 430px;
 }
+#slideshow .caption .link {
+  font-size:0.5em;
+}
+#slideshow .arrow { 
+    margin-left: 5px;
+    margin-bottom:-7px;
+    display: inline-block;
+    height:25px;
+    width:40px;
+    background-position:0px -130px;
+    -moz-transition: 0.2s; /* this transition moves the arrow from left:2px to left:6px */
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+#slideshow .white .arrow {
+    background-position:0px -170px;
+}
+
+#slideshow a:hover .arrow {
+    background-position:5px -130px; /* this sets the final position for the arrow transition */
+}
+#slideshow  a:hover .white .arrow{
+   background-position:5px -170px; /* this sets the final position for the arrow transition */
+}
+
 #slideshow .prev,
 #slideshow .next {
   position: absolute;
   width: 40px;
-  height: 60px;
+  height: 40px;
   margin-top: -60px;
   top: 50%;
   z-index: 40;
   cursor: pointer;
+  background: url('../../themes/practical-steam/images/ps-sprite.png') 0 0 no-repeat;
 }
 #slideshow .prev {
-  left: -5px;
-  background: url('../images/themes.gif') no-repeat;
+  left: 15px;
+  background-position:0 -30px;
 }
 #slideshow .next {
-  right: -5px;
-  background: url('../images/themes.gif') no-repeat -35px 0;
+  right: 15px;
+  background-position: 0 -80px;
 }
 #slideshow .pager {
   position: absolute;

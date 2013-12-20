@@ -2,11 +2,15 @@
 	<ul>
 		<% loop Slides %> 
 		<% if not Archived %>		
-		<li>
-			<img src="<% with Image %><% with PaddedImage(930,430) %>$URL<% end_with %><% end_with %>" alt="$Title.XML"/>
-			<% if Title %>
-				<p class="caption">$Title</p>
-			<% end_if %>
+			<li>
+				<a href="{$GoToURL}">
+				<img src="<% with Image %>$URL<% end_with %>" alt="$Title.XML"/>
+				<% if Title %>
+					<div class="caption <% if FontColor %>white<% end_if %>">$Title 
+					<div class="link">Learn more <span class="ps-sprite arrow black"></span></div>
+					</div>
+				<% end_if %>
+			</a>
 		</li>
 			<% end_if %>
 		<% end_loop %> 

@@ -2,10 +2,11 @@
 
 class Slide extends DataObject {
 	public static $db = array(
-		'Title' => 'Varchar',
+		'Title' => 'Varchar(100)',
 		"SortOrder" => "Int",
 		"GoToURL" => "Text",
 		"Archived" => "Boolean",
+		"FontColor" => "Boolean"
 	);
 	public static $has_one = array(
 		'Image' => 'Image',
@@ -43,18 +44,26 @@ class Slide extends DataObject {
 		
 		//remove unused fields
 		$fields->removeByName('Image'); //this is added manually later
-		$fields->removeByName('SortOrder');
 		$fields->removeByName('PageID');
+		$fields->removeByName('SortOrder');
 		$fields->removeByName('Archived');
+		$fields->removeByName('FontColor');
 		
 		//replace existing fields with own versions
 		$fields->replaceField('Title', new TextField('Title',_t('Slide.TITLE',"Title")));
+		$fields->addFieldToTab('Root.Main', $group = new CompositeField(
+			$label = new LabelField("LabelColor","Make the caption white"),
+			new CheckboxField('FontColor', '')
+		));
 		$fields->replaceField('GoToURL', new TextField('GoToURL',_t('Slide.GOTOURL',"url to redirect the user when clicks on the slide")));
 		
+		
+
 		$fields->addFieldToTab('Root.Main', $group = new CompositeField(
 			$label = new LabelField("LabelArchive","Archive this carousel item?"),
 			new CheckboxField('Archived', '')
 		));
+
 		
 		$UploadField = new UploadField('Image', _t('Slide.MainImage',"Image"));
 		$UploadField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));

@@ -15,7 +15,7 @@ class Slideshow extends DataExtension {
 		$config->addComponent(new GridFieldSortableRows('SortOrder'));
 
 
-		$gridField = new GridField('Slides', _t('Slideshow.PROMOTIONS', 'Promotions'), $this->owner->Slides(), $config);
+		$gridField = new GridField('Slides', _t('Slideshow.HeroImages', 'Hero Images'), $this->owner->Slides(), $config);
 		$fields->addFieldToTab('Root', new Tab('Slideshow', _t('Slideshow.SLIDESHOWTAB', 'Slideshow')));
 		$fields->addFieldToTab('Root.Slideshow', $gridField);
 		return $fields;

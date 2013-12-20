@@ -5,7 +5,7 @@
 		$('#slideshow').append('<div class="next"></div>');
 		$('#slideshow ul').cycle({
 			fx:'fade',
-			timeout:5000,
+			timeout:0,
 			pager:'#slideshow .pager',
 			next:'#slideshow .next',
 			prev:'#slideshow .prev'
