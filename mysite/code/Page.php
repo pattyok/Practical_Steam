@@ -2,7 +2,7 @@
 class Page extends SiteTree {
 
 	private static $db = array(
-
+		"IncludeRequestQuoteForm" => "Boolean"
 	);
 
 	private static $has_one = array(
@@ -40,6 +40,7 @@ class Page_Controller extends ContentController {
 		Requirements::themedCSS('layout'); 
 		Requirements::themedCSS('typography'); 
 		Requirements::themedCSS('form'); 
+		Requirements::themedCSS('cmsadmin'); 
 	}
 	// Template method
     public function ContactForm() {

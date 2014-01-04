@@ -1,0 +1,23 @@
+/* OVERRIDE SOME EDITOR STYLES */
+
+
+.CompositeField label {
+float: left;
+display: block;
+width: 176px;
+padding: 8px 8px 8px 0px;
+line-height: 16px;
+font-weight: bold;
+text-shadow: 1px 1px 0px white;	
+}
+
+.field label.left {
+    float: left;
+    display: block;
+    width: 176px;
+    padding: 8px 8px 8px 0px;
+    line-height: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px white;
+    color:red;
+}

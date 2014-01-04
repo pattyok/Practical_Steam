@@ -55,12 +55,12 @@ class Slide extends DataObject {
 			$label = new LabelField("LabelColor","Make the caption white"),
 			new CheckboxField('FontColor', '')
 		));
-		$fields->replaceField('GoToURL', new TextField('GoToURL',_t('Slide.GOTOURL',"url to redirect the user when clicks on the slide")));
+		$fields->replaceField('GoToURL', new TextField('GoToURL',_t('Slide.GOTOURL',"Link URL")));
 		
 		
 
 		$fields->addFieldToTab('Root.Main', $group = new CompositeField(
-			$label = new LabelField("LabelArchive","Archive this carousel item?"),
+			$label = new LabelField("LabelArchive","Archive this slide?"),
 			new CheckboxField('Archived', '')
 		));
 

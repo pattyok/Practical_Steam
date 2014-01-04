@@ -1,9 +1,9 @@
 en:
   Slide:
-    GOTOURL: 'url to redirect the user when clicks on the slide'
+    GOTOURL: 'Link URL'
     MainImage: Image
     NOTHUMBNAILSAVAILABLE: 'No thumbnails available'
-    PLURALNAME: Slids
+    PLURALNAME: Slides
     SINGULARNAME: Slide
     TITLE: Title
     YOUNEEDTOSAVEFIRST: 'You will be able to add the image once you save for the first time'

@@ -9,3 +9,9 @@ SSViewer:
   theme: 'simple'
 Director:
   environment_type: 'dev'
+SiteTree:
+  extensions:
+  - ContentSection
+LeftAndMain:
+  extra_requirements_css:
+  - mysite/css/admin.css:
