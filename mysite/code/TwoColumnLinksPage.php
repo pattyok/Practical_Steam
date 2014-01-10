@@ -26,7 +26,7 @@ class TwoColumnLinksPage extends Page {
 		$config->addComponent(new GridFieldSortableHeader());
 		$config->addComponent(new GridFieldSortableRows('Sort'));
 		$gridfield = new GridField("Links", "Link", $this->Links(), $config);			
-		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
+		$fields->addFieldToTab('Root.Main', $gridfield, 'Metadata');
 
 		$fields->addFieldToTab('Root.Main', new CheckboxField('IncludeRequestQuoteForm'), 'Content');
 		$fields->addFieldToTab('Root.Main', new TextField('LinksListTitle'), 'Links');
@@ -37,7 +37,8 @@ class TwoColumnLinksPage extends Page {
             'Root.Images', 
             $uploadField = new UploadField(
                 $name = 'GalleryImages',
-                $title = 'Upload one or more images (max 10 in total)'
+                $title = 'Upload one or more images (max 10 in total)',
+                $description = 'Multiple will be displayed as tabs. To edit the tab title, click on "Edit" for each image'
             )  
         );
         $uploadField->setAllowedMaxFileNumber(10);
@@ -46,8 +47,10 @@ class TwoColumnLinksPage extends Page {
 	}
 }
 
+
 class TwoColumnLinksPage_Controller extends Page_Controller {
-    
+	
+
 }
 
 class GalleryImageExtension extends DataExtension {

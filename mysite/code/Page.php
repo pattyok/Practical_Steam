@@ -33,19 +33,30 @@ class Page_Controller extends ContentController {
 	public function init() {
 		parent::init();
 
-		// Note: you should use SS template require tags inside your templates 
-		// instead of putting Requirements calls here.  However these are 
-		// included so that our older themes still work
+		Requirements:: css("framework/thirdparty/jquery-ui-themes/smoothness/jquery-ui.css");
 		Requirements::themedCSS('reset');
 		Requirements::themedCSS('layout'); 
 		Requirements::themedCSS('typography'); 
 		Requirements::themedCSS('form'); 
 		Requirements::themedCSS('cmsadmin'); 
+
+		Requirements::javascript('framework/thirdparty/jquery/jquery.js');
+		Requirements:: javascript("framework/thirdparty/jquery-ui/jquery-ui.js");
+		Requirements:: javascript("themes/practical-steam/javascript/script.js");
 	}
 	// Template method
     public function ContactForm() {
         return new ContactForm($this, 'ContactForm');
     }
+
+    public function EditURL(){
+      return "/admin/pages/edit/show/".$this->ID."/"; 
+    } 
+
+    function ShowRequestForm(){
+    $get = DataObject::get_one('SiteTree', "UrlSegment = 'request-a-quote'");
+    return new UserDefinedForm_Controller($get); 
+	}
 
 
 }
