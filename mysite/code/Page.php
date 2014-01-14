@@ -27,7 +27,7 @@ class Page_Controller extends ContentController {
 	 * @var array
 	 */
 	private static $allowed_actions = array (
-		'ContactForm'
+		
 	);
 
 	public function init() {
@@ -38,16 +38,14 @@ class Page_Controller extends ContentController {
 		Requirements::themedCSS('layout'); 
 		Requirements::themedCSS('typography'); 
 		Requirements::themedCSS('form'); 
-		Requirements::themedCSS('cmsadmin'); 
+		Requirements::themedCSS('cmsadmin');
+		Requirements::themedCSS('editor');  
 
 		Requirements::javascript('framework/thirdparty/jquery/jquery.js');
 		Requirements:: javascript("framework/thirdparty/jquery-ui/jquery-ui.js");
 		Requirements:: javascript("themes/practical-steam/javascript/script.js");
 	}
-	// Template method
-    public function ContactForm() {
-        return new ContactForm($this, 'ContactForm');
-    }
+	
 
     public function EditURL(){
       return "/admin/pages/edit/show/".$this->ID."/"; 

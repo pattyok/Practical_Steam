@@ -1,6 +1,6 @@
 <?php
 
-class TwoColumnLinksPage extends Page {
+class TwoColumnLinksPage extends BasicPage {
 	private static $db = array(
 		"LinksListTitle" => "Varchar(100)"
 	);
@@ -48,13 +48,8 @@ class TwoColumnLinksPage extends Page {
 }
 
 
-class TwoColumnLinksPage_Controller extends Page_Controller {
+class TwoColumnLinksPage_Controller extends BasicPage_Controller {
 	
 
 }
 
-class GalleryImageExtension extends DataExtension {
-    private static $belongs_many_many = array('GalleryImages' => 'Page');
-}
- 
-Image::add_extension('GalleryImageExtension');
