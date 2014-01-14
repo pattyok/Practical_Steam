@@ -1,4 +1,4 @@
-<section id="slideshow"> 
+<section id="slideshow" class="slideshow"> 
 	<ul>
 		<% loop Slides %> 
 		<% if not Archived %>		
