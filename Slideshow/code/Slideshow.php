@@ -23,13 +23,13 @@ class Slideshow extends DataExtension {
 }
 
 class Slideshow_Controller extends SiteTreeExtension { 
-
+	//modified original slideshow module to use slidesjs (it is responsive, jquery cycle was not)
 	public function contentcontrollerInit($controller) {
 		if ($this->owner->Slides()) {
 			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.min.js");
-			Requirements::javascript("Slideshow/thirdparty/jquery.cycle.js");
+			Requirements::javascript("Slideshow/thirdparty/jquery.slides.min.js");
 			Requirements::javascript("Slideshow/js/core.js");
-			Requirements::css("Slideshow/css/Slideshow.css");
+			Requirements::css("Slideshow/css/SlideshowJS.css");
 		}
 		
 	}

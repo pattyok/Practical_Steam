@@ -4,13 +4,13 @@ class Slide extends DataObject {
 	public static $db = array(
 		'Title' => 'Varchar(100)',
 		"SortOrder" => "Int",
-		"GoToURL" => "Text",
-		"Archived" => "Boolean",
-		"FontColor" => "Boolean"
+		"FontColor" => "Boolean",
+		"Archived" => "Boolean"
 	);
 	public static $has_one = array(
 		'Image' => 'Image',
-		"Page" => "Page"
+		"Page" => "Page", 
+		'LinkedPage' => 'SiteTree'
 	);
 
 	static $default_sort = 'SortOrder';
@@ -48,29 +48,20 @@ class Slide extends DataObject {
 		$fields->removeByName('SortOrder');
 		$fields->removeByName('Archived');
 		$fields->removeByName('FontColor');
+		$fields->removeByName('LinkedPageID');
 		
 		//replace existing fields with own versions
 		$fields->replaceField('Title', new TextField('Title',_t('Slide.TITLE',"Title")));
-		$fields->addFieldToTab('Root.Main', $group = new CompositeField(
-			$label = new LabelField("LabelColor","Make the caption white"),
-			new CheckboxField('FontColor', '')
-		));
-		$fields->replaceField('GoToURL', new TextField('GoToURL',_t('Slide.GOTOURL',"Link URL")));
-		
-		
+		$fields->addFieldToTab('Root.Main', new CheckboxField('FontColor', 'Make Caption White'));
+		$fields->addFieldToTab('Root.Main', new TreeDropdownField('LinkedPageID', 'Page to link to', 'SiteTree'));
 
-		$fields->addFieldToTab('Root.Main', $group = new CompositeField(
-			$label = new LabelField("LabelArchive","Archive this slide?"),
-			new CheckboxField('Archived', '')
-		));
-
-		
+		$fields->addFieldToTab('Root.Main', new CheckboxField('Archived', 'Archive this slide?'));
+	
 		$UploadField = new UploadField('Image', _t('Slide.MainImage',"Image"));
 		$UploadField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
 		$UploadField->setConfig('allowedMaxFileNumber', 1);
 		$UploadField->setFolderName("Slides");
-	
-		$fields->push($UploadField);
+		$fields->addFieldToTab('Root.Main', $UploadField, 'Archived');
 		
 		//allow extending this object with another 
 		$this->extend('updateCMSFields', $fields);

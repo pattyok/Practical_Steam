@@ -1,9 +1,8 @@
-<section id="slideshow" class="slideshow"> 
-	<ul>
-		<% loop Slides %> 
+<div id="slideshow" class="slideshow"> 
+	<% loop Slides %> 
 		<% if not Archived %>		
-			<li>
-				<a href="{$GoToURL}">
+		<div>
+				<a href="$LinkedPage.Link" class="four">
 				<img src="<% with Image %>$URL<% end_with %>" alt="$Title.XML"/>
 				<% if Title %>
 					<div class="caption <% if FontColor %>white<% end_if %>">$Title 
@@ -11,8 +10,7 @@
 					</div>
 				<% end_if %>
 			</a>
-		</li>
-			<% end_if %>
-		<% end_loop %> 
-	</ul>
-</section>
+		</div>
+		<% end_if %>
+	<% end_loop %> 
+</div>

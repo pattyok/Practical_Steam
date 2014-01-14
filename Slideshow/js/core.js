@@ -1,19 +1,31 @@
-;(function($) {
+(function($) {
 	$(document).ready(function() {
-		$('#slideshow').append('<div class="outerpager"><div class="pager"></div></div>');
-		$('#slideshow').append('<div class="prev"></div>');
-		$('#slideshow').append('<div class="next"></div>');
-		$('#slideshow ul').cycle({
+		/*$('#slideshow ul').cycle({
 			fx:'fade',
 			timeout:0,
 			height:380,
 			pager:'#slideshow .pager',
 			next:'#slideshow .next',
 			prev:'#slideshow .prev'
-		});
-		//set width of pager appropriately to allow for centering
-		var count = $('#slideshow .pager a').length;
+		});*/
+		$('#slideshow').slidesjs({
+		width: 1080,
+        height: 380,
+        navigation: {
+          effect: "fade"
+        },
+        pagination: {
+          effect: "fade"
+        },
+        effect: {
+          fade: {
+            speed: 800
+          }
+        }
+      });
+		//set width of pager appropriately to center the paging dots
+		var count = $('.slidesjs-pagination li').length;
 		var pagerWidth = count * 20;
-		$('#slideshow .pager').css('width', pagerWidth);
+		$('.slidesjs-pagination').css('width', pagerWidth);
 	})
 })(jQuery);

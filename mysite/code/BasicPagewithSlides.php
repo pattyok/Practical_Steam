@@ -13,9 +13,8 @@ class BasicPageWithSlides_Controller extends BasicPage_Controller {
 	
 	public function init() {
 		parent::init();
-		Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.min.js");
-		Requirements::javascript("Slideshow/thirdparty/jquery.cycle.js");
+		Requirements::javascript("Slideshow/thirdparty/jquery.slides.js");
 		Requirements::javascript("themes/practical-steam/javascript/customslides.js");
-		Requirements::css("Slideshow/css/Slideshow.css");
+		Requirements::css("Slideshow/css/SlideshowJS.css");
 	}	
 }
