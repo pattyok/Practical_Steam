@@ -30,7 +30,7 @@ class BasicPage extends Page {
 		$toggleFieldImages = ToggleCompositeField::create(
 			'ImagesToggle', $this->fieldLabel('Images'), $uploadField
 		);
-		$uploadField->setAllowedMaxFileNumber(10)->setRightTitle('Multiple will be displayed as tabs. To edit the tab title, click on "Edit" for each image');
+		$uploadField->setAllowedMaxFileNumber(10)->setRightTitle('Multiple images will be displayed as tabs. To edit the tab title, click on "Edit" for each image');
 		$fields->addFieldToTab('Root.Main', $toggleFieldImages, 'ColumnsToggle');
 		
 		//Re-Label main Content field
