@@ -2,8 +2,8 @@
 class ContentSection extends DataObject { 
   
     public static $db = array(
-    	 'Title'=>'Varchar',
-    	 'Headline' => 'Varchar',	
+    	 'Title'=>'Varchar(100)',
+    	 'Headline' => 'Varchar(100)',	
   	   'BackgroundColor'=>"Enum('Default, Green, Orange, Blue')",
        'Details'=>'HTMLText',
        'Sort'=>'Int'

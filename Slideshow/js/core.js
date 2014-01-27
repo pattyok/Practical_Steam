@@ -1,16 +1,16 @@
 (function($) {
 	$(document).ready(function() {
-		/*$('#slideshow ul').cycle({
-			fx:'fade',
-			timeout:0,
-			height:380,
-			pager:'#slideshow .pager',
-			next:'#slideshow .next',
-			prev:'#slideshow .prev'
-		});*/
 		$('#slideshow').slidesjs({
 		width: 1080,
         height: 380,
+        play: {
+			active:true,
+			auto:true,
+			interval: 4000,
+			pauseOnHover:true,
+			restartDelay:4000,
+			effect: "fade"
+		},
         navigation: {
           effect: "fade"
         },
